@@ -8,6 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@mantine/core": "^5.8.0",
+    "@mantine/hooks": "^5.8.0",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
     "react": "^18.2.0",
@@ -26,6 +29,7 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.14",
