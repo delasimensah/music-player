@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import { Error, Loader, SongCard } from "../components";
+import { Error, Loader, SongCard, SongGrid } from "../components";
 import { selectGenreListId } from "../redux/features/playerSlice";
 import { useGetSongsByGenreQuery } from "../redux/services/shazamCore";
 import { genres } from "../assets/constants";
@@ -39,7 +39,7 @@ const Discover = () => {
         </select>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-8 sm:justify-start">
+      <SongGrid>
         {data?.map((song, i) => (
           <SongCard
             key={song.key}
@@ -50,7 +50,7 @@ const Discover = () => {
             i={i}
           />
         ))}
-      </div>
+      </SongGrid>
     </div>
   );
 };

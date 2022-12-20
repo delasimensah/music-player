@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-import { Error, Loader, SongCard } from "../components";
+import { Error, Loader, SongCard, SongGrid } from "../components";
 import { useGetSongsByCountryQuery } from "../redux/services/shazamCore";
 
 const CountryTracks = () => {
@@ -34,7 +34,7 @@ const CountryTracks = () => {
         Around you <span className="font-black">{country}</span>
       </h2>
 
-      <div className="flex flex-wrap justify-center gap-8 sm:justify-start">
+      <SongGrid>
         {data?.map((song, i) => (
           <SongCard
             key={song.key}
@@ -45,7 +45,7 @@ const CountryTracks = () => {
             i={i}
           />
         ))}
-      </div>
+      </SongGrid>
     </div>
   );
 };

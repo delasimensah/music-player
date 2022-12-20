@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { Error, Loader, SongCard } from "../components";
+import { Error, Loader, SongCard, SongGrid } from "../components";
 import { useGetTopChartsQuery } from "../redux/services/shazamCore";
 
 const TopCharts = () => {
@@ -17,7 +17,7 @@ const TopCharts = () => {
         Discover Top Charts
       </h2>
 
-      <div className="flex flex-wrap justify-center gap-8 sm:justify-start">
+      <SongGrid>
         {data.map((song, i) => (
           <SongCard
             key={song.key}
@@ -28,7 +28,7 @@ const TopCharts = () => {
             i={i}
           />
         ))}
-      </div>
+      </SongGrid>
     </div>
   );
 };
