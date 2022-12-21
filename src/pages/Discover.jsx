@@ -1,5 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 
+import { Select } from "@mantine/core";
+
 import { Error, Loader, SongCard, SongGrid } from "../components";
 import { selectGenreListId } from "../redux/features/playerSlice";
 import { useGetSongsByGenreQuery } from "../redux/services/shazamCore";
@@ -26,17 +28,40 @@ const Discover = () => {
           Discover {genreTitle}
         </h2>
 
-        <select
-          onChange={(e) => dispatch(selectGenreListId(e.target.value))}
-          value={genreListId || "pop"}
-          className="p-3 mt-5 text-sm text-gray-300 bg-black rounded-lg outline-none sm:mt-0"
-        >
-          {genres.map((genre) => (
-            <option key={genre.value} value={genre.value}>
-              {genre.title}
-            </option>
-          ))}
-        </select>
+        <Select
+          placeholder="Select genre"
+          value={genreListId || "POP"}
+          onChange={(string) => dispatch(selectGenreListId(string))}
+          data={genres.map((genre) => ({
+            value: genre.value,
+            label: genre.title,
+          }))}
+          styles={{
+            item: {
+              // applies styles to selected item
+              "&[data-selected]": {
+                "&, &:hover": {
+                  backgroundColor: "#2C5364",
+                  color: "#fff",
+                },
+              },
+
+              // applies styles to hovered item (with mouse or keyboard)
+              "&[data-hovered]": {
+                "&, &:hover": {
+                  backgroundColor: "#2C5364",
+                  color: "#fff",
+                },
+              },
+            },
+          }}
+          classNames={{
+            input:
+              "bg-black focus:border-transparent border-transparent text-white",
+            dropdown: "bg-black border-transparent",
+            item: "text-white",
+          }}
+        />
       </div>
 
       <SongGrid>

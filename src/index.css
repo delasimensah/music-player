@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: "Nunito", sans-serif;
+}
+
 /* Active Navigation Link */
 .active {
   @apply text-cyan-500;
